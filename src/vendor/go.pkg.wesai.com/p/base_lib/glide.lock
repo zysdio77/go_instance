@@ -1,0 +1,28 @@
+hash: c0a2753add9b6efc29c13594d88291d6c8d83e4eff24bf5b1ab81cede76fa86e
+updated: 2016-03-21T17:09:06.501124659+08:00
+imports:
+- name: github.com/coreos/etcd
+  version: 0eeb663754e359db06ba52ded28ac871ad9c78b8
+  subpackages:
+  - Godeps/_workspace/src/golang.org/x/net/context
+  - client
+  - Godeps/_workspace/src/github.com/ugorji/go/codec
+  - pkg/pathutil
+  - pkg/types
+- name: github.com/hashicorp/consul
+  version: ea62d297565a1fec78bfa66e43beeecb504d13d5
+  subpackages:
+  - api
+- name: github.com/hashicorp/go-cleanhttp
+  version: 875fb671b3ddc66f8e2f0acc33829c8cb989a38d
+- name: github.com/hashicorp/serf
+  version: 598c54895cc5a7b1a24a398d635e8c0ea0959870
+  subpackages:
+  - coordinate
+- name: github.com/Sirupsen/logrus
+  version: 219c8cb75c258c552e999735be6df753ffc7afdc
+- name: golang.org/x/sys
+  version: 9c60d1c508f5134d1ca726b4641db998f2523357
+  subpackages:
+  - unix
+devImports: []
