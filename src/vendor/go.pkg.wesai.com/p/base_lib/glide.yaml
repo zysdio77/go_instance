@@ -1,7 +1,0 @@
-package: go.pkg.wesai.com/p/base_lib
-import:
-- package: github.com/Sirupsen/logrus
-- package: github.com/coreos/etcd
-  subpackages:
-  - Godeps/_workspace/src/golang.org/x/net/context
-  - client
