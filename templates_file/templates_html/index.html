@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>目录</title>
+    <style type="text/css">
+        .box1{background: #d0d0d0;float: left;}
+        .box2{background: green;float:right;}
+        ul
+        {
+            list-style-type:none;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float:left;
+        }
+        a:link,a:visited
+        {
+            display:block;
+            width:180px;
+            height: 30px;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#a9a9a9;
+            text-align:center;
+            padding: 10px;
+            text-decoration:brown;
+            text-transform:uppercase;
+        }
+        a:hover,a:active
+        {
+            background-color:#cc0000;
+        }
+
+        p.small {line-height: 90%}
+        p.big {line-height: 200%}
+    </style>
+</head>
+<body bgcolor="#a9a9a9">
+<ul>
+    <li><a href="default.asp">Home</a></li>
+    <li><a href="news.asp">News</a></li>
+    <li><a href="contact.asp">Contact</a></li>
+    <li><a href="about.asp">About</a></li>
+</ul>
+
+<h2>茅山后裔</h2>
+<ul>
+{{range $index,$name := .menudct}}
+        <li>
+            <a href="/content?menupath={{$index}}">{{$name}}</a>
+        </li>
+{{end}}
+</ul>
+</body>
+</html>

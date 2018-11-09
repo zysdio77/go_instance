@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.title}}</title>
+    <style type="text/css">
+        .box1{background: #d0d0d0;float: left;}
+        .box2{background: green;float:right;}
+        ul
+        {
+            list-style-type:none;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float:left;
+        }
+        a:link,a:visited
+        {
+            display:block;
+            width:100px;
+            height: 20px;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#a9a9a9;
+            text-align:center;
+            padding: 10px;
+            text-decoration:brown;
+            text-transform:uppercase;
+        }
+        a:hover,a:active
+        {
+            background-color:#cc0000;
+        }
+
+        p.small {line-height: 90%}
+        p.big {line-height: 200%}
+    </style>
+</head>
+<body bgcolor="#d0d0d0">
+<ul>
+    <li><a href="http://127.0.0.1:10002/menu">目录</a></li>
+    <li><a href="/content?menupath={{.beforpagenumb}}">前一页</a></li>
+    <li><a href="/content?menupath={{.afterpagenumb}}">后一页</a></li>
+</ul>
+
+    <p class="small"><h3>{{.title}}</h3></p>
+    <li>{{.content}}</li>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<html>
+<body>
+{{range $index,$name := .title}}
+<a href="http://127.0.0.1:10001/content?menupath={{$index}}"><li>{{$name}}</li></a>
+        {{end}}
+</body>
+</html>

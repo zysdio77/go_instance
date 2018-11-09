@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>目录</title>
+</head>
+<body>
+<h2>茅山后裔</h2>
+{{range $index,$name := .menudct}}
+<a href="http://127.0.0.1:10002/content?menupath={{$index}}"><li>{{$name}}</li></a>
+{{end}}
+{{$a := .menupathlist}}
+{{$b := .menunamelist}}
+</body>
+</html>
