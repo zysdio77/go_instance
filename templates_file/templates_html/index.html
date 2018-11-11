@@ -46,13 +46,15 @@
     <li><a href="news.asp">News</a></li>
     <li><a href="contact.asp">Contact</a></li>
     <li><a href="about.asp">About</a></li>
+    <li><a href="/">大厅</a></li>
 </ul>
 
-<h2>茅山后裔</h2>
+<h2>{{.title}}</h2>
+{{$tt := .table_name}}
 <ul>
 {{range $index,$name := .menudct}}
         <li>
-            <a href="/content?menupath={{$index}}">{{$name}}</a>
+            <a href="/content?menupath={{$index}}&table_name={{$tt}}">{{$name}}</a>
         </li>
 {{end}}
 </ul>

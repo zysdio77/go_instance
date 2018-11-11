@@ -1,7 +1,15 @@
 <html>
-<body>
-<h6>test</h6>
-{{.key}}
-</ul>
+<body bgcolor="#a9a9a9">
+
+<h2>{{.title}}</h2>
+<h2>hah</h2>
+{{$aaa := .table_name}}
+{{range $index := .menupathlist}}
+    <li>
+        //在template中，循环里不能直接用{{.table_name}},必须把{{.table_name}}赋值给一个变量，例如{{$aaa := .table_name}}
+        {{$aaa}}
+    </li>
+{{end}}
+
 </body>
 </html>
