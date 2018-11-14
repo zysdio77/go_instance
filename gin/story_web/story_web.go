@@ -144,5 +144,5 @@ func main() {
 	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
 	router.GET("/menu", index)
 	router.GET("/content", content)
-	router.Run(":10002")
+	router.Run(":10003")
 }

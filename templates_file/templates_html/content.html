@@ -7,6 +7,7 @@
     <style type="text/css">
         .box1{background: #d0d0d0;float: left;}
         .box2{background: green;float:right;}
+        .textcolor{color: #990055;}
         ul
         {
             list-style-type:none;
@@ -49,6 +50,11 @@
 
     <p class="small"><h3>{{.title}}</h3></p>
     <li>{{.content}}</li>
-
+<h4 class="textcolor">大臭小说坊</h4>
+<ul>
+    <li><a href="http://127.0.0.1:10002/menu?table_name={{.table_name}}">目录</a></li>
+    <li><a href="/content?menupath={{.beforpagenumb}}&table_name={{.table_name}}">前一页</a></li>
+    <li><a href="/content?menupath={{.afterpagenumb}}&table_name={{.table_name}}">后一页</a></li>
+</ul>
 </body>
 </html>
