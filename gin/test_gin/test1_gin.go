@@ -1,35 +1,24 @@
 package main
 
 import (
-	"gopkg.in/gin-gonic/gin.v1"
-	"encoding/json"
-	"fmt"
+	"github.com/gin-gonic/gin"
 )
 
-type Person struct {
-	Username string
-	Password string
-}
+func main()  {
 
-func aa(c *gin.Context)  {
-	//userneme :=c.Query("username")
-	//c.String(200,userneme)
-	//uu,err := c.GetCookie(userneme)
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	c.Writer.WriteString("aaaaa")
-	p := Person{"zhang","123"}
-	//c.String(200,uu)
-	c.JSON(200,&p)
-	j,err :=json.Marshal(p)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(string(j))
-}
-func main ()  {
-	router := gin.Default()
-	router.GET("/a",aa)
-	router.Run("0.0.0.0:9999")
+	router := gin.Default();
+	router.GET("/read_cookie", func(context *gin.Context) {
+		val, _ := context.Cookie("name")
+		context.String(200, "Cookie:%s", val)
+	})
+
+	router.GET("/write_cookie", func(context *gin.Context) {
+		context.SetCookie("name", "Shimin Li", 10, "/", "localhost", false, true)
+	})
+
+	router.GET("/clear_cookie", func(context *gin.Context) {
+		context.SetCookie("name", "Shimin Li", -1, "/", "localhost", false, true)
+	})
+
+	router.Run(":8080")
 }

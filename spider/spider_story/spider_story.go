@@ -100,7 +100,7 @@ func WriteFile(words, filename string) error {
 }
 func ConnectDb() (*sql.DB, error) {
 	//链接数据库
-	db, err := sql.Open("mysql", "root:root@tcp(104.225.154.39:3306)/test?charset=utf8")
+	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3306)/test?charset=utf8")
 	if err != nil {
 		return nil, err
 	}
@@ -266,13 +266,13 @@ func test(url_addr string) {
 }
 
 func main() {
-	tablename := "story_zgj"
+	tablename := "story_jyfhwz"
 	drop_table(tablename)
 	create_table(tablename)
 	alter_table(tablename)
 	//url_addr := "https://www.88dush.com/xiaoshuo/0/801/" //茅山后裔
 	//url_addr := "https://www.88dush.com/xiaoshuo/70/70239/"	//苗疆蛊事
-	url_addr := "https://www.88dush.com/xiaoshuo/65/65120/"	//捉蛊记
+	url_addr := "https://www.88dush.com/xiaoshuo/3/3896/"	//捉蛊记
 	do_work(url_addr,tablename)
 	//test(url_addr)
 }
