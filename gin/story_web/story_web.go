@@ -124,10 +124,10 @@ func content(c *gin.Context) {
 var configFile string
 
 func main() {
-	name_dic := make(map[string]string)
-	name_dic["story_mjgs"] = "苗疆蛊事"
-	name_dic["story_mshy"] = "茅山后裔"
-	fmt.Println(name_dic)
+	//name_dic := make(map[string]string)
+	//name_dic["story_mjgs"] = "苗疆蛊事"
+	//name_dic["story_mshy"] = "茅山后裔"
+	//fmt.Println(name_dic)
 
 	flag.StringVar(&configFile, "config", `/Users/zhangyongsheng/data/src/go_instance/read_config/config.toml`, "config file path")
 	flag.Parse()

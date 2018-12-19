@@ -6,7 +6,7 @@ import (
 )
 
 func Sentinel() {
-	//链接sentibel
+	//链接sentinel
 	cli := redis.NewFailoverClient(&redis.FailoverOptions{
 		MasterName:    "mymaster",	//主节点名字
 		SentinelAddrs: []string{"104.225.154.39:26379", "104.225.154.39:26380", "104.225.154.39:26381"},	//sentinel链接地址

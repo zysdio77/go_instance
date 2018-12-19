@@ -56,22 +56,40 @@ func main()  {
 		fmt.Println("Usage : you need arg!!!")
 	} else {
 		aa := os.Args[1]
-		soucepath := "/home/ubuntu/.jenkins/workspace/casino-website/Slots_cambodia/test/"
-		dispath := "/var/www/html/cambodia/"
-		soucepath2 := soucepath+aa
-		dispath2,err := Newpath(dispath+aa+"/")
-		if err != nil {
-			fmt.Println(err)
+		soucepath := "/home/ubuntu/.jenkins/workspace/cambodia_game_website/Slots_cambodia/prepare/"
+		dispath := "/data/cambodia/game-website/cambodia/"
+		if aa == "all" {
+			alllist := []string{"AC01","AC02","AC03","AC04","AC05","AC06","AC07","AC08","AC09","AC10","AC11","AC12","AC14","AC15","AC17","HP07","HP09"}
+			for _,j := range alllist{
+				soucepath2 := soucepath+j
+				dispath2,err := Newpath(dispath+j+"/")
+				if err != nil {
+					fmt.Println(err)
+				} else {
+					fmt.Println("create successful ",dispath2)
+				}
+				err = Cpfile(soucepath2,dispath2)
+				if err!= nil {
+					fmt.Println("Cpfile err",err)
+				} else {
+					fmt.Println("cp file ok")
+				}
+			}
 		} else {
-			fmt.Println("create successful ",dispath2)
-		}
+			soucepath2 := soucepath+aa
+			dispath2,err := Newpath(dispath+aa+"/")
+			if err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println("create successful ",dispath2)
+			}
 
-		err = Cpfile(soucepath2,dispath2)
-		if err!= nil {
-			fmt.Println("Cpfile err",err)
-		} else {
-			fmt.Println("cp file ok")
+			err = Cpfile(soucepath2,dispath2)
+			if err!= nil {
+				fmt.Println("Cpfile err",err)
+			} else {
+				fmt.Println("cp file ok")
+			}
 		}
-
 	}
 }
