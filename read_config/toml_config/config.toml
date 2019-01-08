@@ -1,0 +1,9 @@
+[mysql]
+host = "104.225.154.39"
+port = 3306
+db = "test"
+user = "root"
+password = "root"
+
+[template]
+dir = "/Users/zhangyongsheng/data/src/go_instance/templates_file/templates_html/"
