@@ -109,24 +109,26 @@ func main() {
 		fmt.Println("Usage: you need a arg ")
 		os.Exit(2)
 	}
-	/*
+
 		supervisordisc := make(map[string]string)
-		supervisordisc["chili"]="chili/chili"
-		supervisordisc["sudhana"]="sudhana/sudhana"
-		supervisordisc["lips"]="lips/lips"
-		supervisordisc["bee"]="bee/bee"
-		supervisordisc["dragonball"]="dragonball/dragonball"
-		supervisordisc["dragonvstiger"]="dragon_vs_tiger/dragon_vs_tiger"
-		supervisordisc["egypt"]="egypt/egypt"
-		supervisordisc["fafafa"]="fafafa/fafafa"
-		supervisordisc["nereids"]="nereids/nereids"
-		supervisordisc["cat"]="manekineko/cat"
-		supervisordisc["monkeyking"]="monkey_king/monkey_king"
-		supervisordisc["pearl"]="pearl/pearl"
-		supervisordisc["samba"]="samba/samba"
-		supervisordisc["sweets"]="sweets/sweets"
-		supervisordisc["dog"]="wangcai/dog"
-	*/
+		supervisordisc["chili"]="app_chili"
+		supervisordisc["sudhana"]="app_sudhana"
+		supervisordisc["lips"]="app_lips"
+		supervisordisc["bee"]="app_bee"
+		supervisordisc["dragonball"]="app_dragonball"
+		supervisordisc["dragonvstiger"]="app_dragonvstiger"
+		supervisordisc["egypt"]="app_egypt"
+		supervisordisc["fafafa"]="app_fafafa"
+		supervisordisc["nereids"]="app_nereids"
+		supervisordisc["manekineko"]="app_manekineko"
+		supervisordisc["monkeyking"]="app_monkeyking"
+		supervisordisc["pearl"]="app_pearl"
+		supervisordisc["samba"]="app_samba"
+		supervisordisc["sweets"]="app_sweets"
+		supervisordisc["wangcai"]="app_wangcai"
+		supervisordisc["fuguimao"]="app_fuguimao"
+		supervisordisc["treasure_bowl"]="app_treasurebowl"
+
 	publishdisc := make(map[string]string)
 	publishdisc["chili"] = "chili/chili"
 	publishdisc["sudhana"] = "sudhana/sudhana"
@@ -148,12 +150,18 @@ func main() {
 	publishdisc["treasure_bowl"] = "treasure_bowl/treasure_bowl"
 	publishdisc["night"] = "night/night"
 
+	//app
+	//publishpath := "/home/ubuntu/work/publish/app/"
+	//gitrepopath := "/home/ubuntu/.jenkins/workspace/lele-casino-machine/app/"
 	//正式
-	//publishpath := "/home/ubuntu/work/cambodia/"
-	//gitrepopath := "/home/ubuntu/sync_git_repo/cambodia/"
+	publishpath := "/home/ubuntu/work/app/"
+	gitrepopath := "/home/ubuntu/sync_git_repo/app/game_machine/"
 	//stage
-	publishpath := "/home/ubuntu/work/publish/combodia/"
-	gitrepopath := "/home/ubuntu/.jenkins/workspace/casino-machine/c-publish/"
+	//publishpath := "/home/ubuntu/work/publish/combodia/"
+	//gitrepopath := "/home/ubuntu/.jenkins/workspace/casino-machine/c-publish/"
+	//在jekins中配置地址
+	//publishpath := os.Args[2]
+	//gitrepopath := os.Args[3]
 	argname := os.Args[1]
 
 	if argname == "all" {
@@ -193,7 +201,7 @@ func main() {
 				jsoncode = 1
 			}
 			if gamecode == 1 || jsoncode == 1 {
-				StopSupervisor(i)
+				StopSupervisor(supervisordisc[i])
 				if gamecode == 1 {
 					FileRename(publishname, backupname)
 					c := CopyFile(gitreponame, publishname)
@@ -221,7 +229,7 @@ func main() {
 				}
 			}
 			if gamecode == 2 || jsoncode ==2 {
-				s := StartSupervisor(i)
+				s := StartSupervisor(supervisordisc[i])
 				if s {
 					fmt.Println("部署成功！！！")
 					fmt.Println("####################")
@@ -268,7 +276,7 @@ func main() {
 		jsoncode = 1
 	}
 	if gamecode == 1 || jsoncode == 1 {
-		StopSupervisor(argname)
+		StopSupervisor(supervisordisc[argname])
 		if gamecode == 1 {
 			FileRename(publishname, backupname)
 			c := CopyFile(gitreponame, publishname)
@@ -296,7 +304,7 @@ func main() {
 		}
 	}
 	if gamecode == 2 || jsoncode ==2 {
-		s := StartSupervisor(argname)
+		s := StartSupervisor(supervisordisc[argname])
 		if s {
 			fmt.Println("部署成功！！！")
 			fmt.Println("####################")

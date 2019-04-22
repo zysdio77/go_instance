@@ -6,14 +6,14 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"go.pkg.wesai.com/p/base_lib/log"
-	"go_instance/read_config"
+	"go_instance/read_config/toml_config"
 	"gopkg.in/gin-gonic/gin.v1"
 	"net/http"
 	"strconv"
 )
 
 func ConnectDb(filename string) (*sql.DB, error) {
-	config, err := read_config.ParseConfig(filename)
+	config, err := toml_config.ParseConfig(filename)
 	if err != nil {
 		log.DLogger().Fatal(err)
 		return nil, err
@@ -132,7 +132,7 @@ func main() {
 	flag.StringVar(&configFile, "config", `/Users/zhangyongsheng/data/src/go_instance/read_config/config.toml`, "config file path")
 	flag.Parse()
 
-	config, err := read_config.ParseConfig(configFile)
+	config, err := toml_config.ParseConfig(configFile)
 	if err != nil {
 		log.DLogger().Fatal(err)
 	}
