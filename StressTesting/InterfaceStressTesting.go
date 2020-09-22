@@ -15,7 +15,7 @@ func GetRequest()  {
 		//resq, err := client.R().Get("http://47.252.1.155:8080/Mega-casino-temp/data/getCurrentTime")
 		if err != nil {
 			fmt.Println(err)
-			return
+			//return
 		}
 		fmt.Println(resq,resq.Status())
 	}
